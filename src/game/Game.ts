@@ -118,6 +118,7 @@ export interface GamePublicState {
 
 const WIDTH = 600;
 const HEIGHT = 800;
+const HIGH_SCORE_KEY = 'galagalegacy-highscore';
 
 const COLORS = {
   player: '#00f0ff',
@@ -219,9 +220,28 @@ export class Game {
       invulnerable: 0,
     };
 
+    this.highScore = this.loadHighScore();
     this.bindInput();
     this.initStars();
     this.updatePublicState();
+  }
+
+  private loadHighScore(): number {
+    try {
+      return parseInt(window.localStorage.getItem(HIGH_SCORE_KEY) || '0', 10) || 0;
+    } catch {
+      return 0;
+    }
+  }
+
+  private updateHighScore() {
+    if (this.score <= this.highScore) return;
+    this.highScore = this.score;
+    try {
+      window.localStorage.setItem(HIGH_SCORE_KEY, String(this.highScore));
+    } catch {
+      // stockage indisponible (navigation privée...), tant pis
+    }
   }
 
   private updatePublicState() {
@@ -338,7 +358,7 @@ export class Game {
     this.score = 0;
     this.lives = 3;
     this.level = 1;
-    this.highScore = Math.max(this.highScore, this.score);
+    this.updateHighScore();
     this.comboCount = 0;
     this.comboTimer = 0;
     this.startLevel(1);
@@ -555,7 +575,7 @@ export class Game {
       this.status = 'gameover';
       this.message = 'GAME OVER';
       this.messageTimer = 300;
-      this.highScore = Math.max(this.highScore, this.score);
+      this.updateHighScore();
       this.playTone(110, 'sawtooth', 0.3, 0.6);
       this.updatePublicState();
     }
@@ -699,7 +719,7 @@ export class Game {
     const basePoints = this.isBonusStage ? ENEMY_POINTS[enemy.type] * 2 : ENEMY_POINTS[enemy.type];
     const points = Math.floor(basePoints * comboMultiplier);
     this.score += points;
-    this.highScore = Math.max(this.highScore, this.score);
+    this.updateHighScore();
     this.spawnParticles(enemy.x, enemy.y, this.getEnemyColor(enemy.type), 22);
     this.spawnShockwave(enemy.x, enemy.y, this.getEnemyColor(enemy.type));
     if (comboMultiplier > 1) {
