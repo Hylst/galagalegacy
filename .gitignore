@@ -52,3 +52,6 @@ Thumbs.db
 
 # Archives
 *.zip
+
+# Agents et secrets locaux (garde-fou du 25/11/2026)
+agents.md
