@@ -59,4 +59,4 @@ React 19, TypeScript 5.9 (strict), Tailwind CSS 4, Vite 7, vite-plugin-singlefil
 
 ## Licence
 
-MIT, Geoffroy Streit (Hylst)
+AGPL-3.0-or-later, Geoffroy Streit (Hylst). Voir `LICENSE`.
