@@ -1637,11 +1637,16 @@ export class Game {
     this.ctx.font = 'bold 64px monospace';
     this.ctx.shadowBlur = 30;
     this.ctx.shadowColor = COLORS.neonPink;
-    this.ctx.fillText('GALAGA', 0, 0);
+    this.ctx.fillText("L'HÉRITAGE", 0, 0);
 
     this.ctx.font = 'bold 32px monospace';
     this.ctx.shadowColor = COLORS.neonCyan;
-    this.ctx.fillText('LEGACY', 0, 45);
+    this.ctx.fillText('DE GALAGA', 0, 45);
+
+    this.ctx.font = 'bold 16px monospace';
+    this.ctx.fillStyle = '#fbbf24';
+    this.ctx.shadowBlur = 0;
+    this.ctx.fillText("VERSION D'ORIGINE", 0, 75);
 
     this.ctx.restore();
 
