@@ -1,10 +1,12 @@
-# Galaga Legacy
+# L'Héritage de Galaga
+
+> Ancienne version conservée en ligne, hors menu depuis le 26/11/2026. La version courante est L'Héritage de Galaga.
 
 **Shoot'em up arcade rétro, vagues en formation et néons partout.**
 
 Joue ici : [games.hylst.fr/galagalegacy/](https://games.hylst.fr/galagalegacy/)
 
-![Galaga Legacy](og-image.png)
+![L'Héritage de Galaga](og-image.png)
 
 ## Comment on joue
 

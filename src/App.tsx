@@ -155,7 +155,7 @@ export default function App() {
       {/* Footer */}
       <div className="w-full max-w-3xl px-4 py-2 flex justify-between items-center text-white/40 text-xs">
         <span>Créateur: <span className="text-cyan-400">Hylst - Geoffroy</span> avec l'aide d'une IA</span>
-        <span className="hidden md:inline text-fuchsia-400">Galaga Legacy</span>
+        <span className="hidden md:inline text-fuchsia-400">L'Héritage de Galaga</span>
       </div>
 
       {showInfo && (
